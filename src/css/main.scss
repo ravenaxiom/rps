@@ -1,7 +1,16 @@
+@import './components/Game';
+@import './components/Move';
+@import './components/MoveButtons';
+@import './components/ResetButton';
+@import './components/Result';
+@import './components/Score';
+
+@import './containers/App';
+
 body {
-	background-color: green;
+	background-color: white;
 
 	h1 {
-		color: white;
+		color: black;
 	}
 }
