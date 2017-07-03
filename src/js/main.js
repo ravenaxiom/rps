@@ -9,6 +9,8 @@ require('../css/main.scss');
 
 const store = buildStore();
 
+console.log(store.getState());
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

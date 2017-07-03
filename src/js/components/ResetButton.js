@@ -3,18 +3,14 @@ import PropTypes from 'prop-types';
 
 import * as Constants from '../constants/Constants';
 
-class ResetButton extends React.Component {
-
-
-  render () {
-    return (
-      <button className="reset-button"
-              onClick={this.props.onClickHandler.bind(this)}>
-        {this.props.label}
-      </button>
-    );
-  }
-}
+const ResetButton = (props) => {
+  return (
+    <button className="reset-button"
+            onClick={props.onClickHandler.bind(this)}>
+      {props.label}
+    </button>
+  );
+};
 
 ResetButton.propTypes = {
   label: PropTypes.string,

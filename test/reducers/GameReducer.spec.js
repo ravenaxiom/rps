@@ -1,7 +1,9 @@
-import Reducers from '../../src/js/reducers/Reducers';
+import GameReducer from '../../src/js/reducers/GameReducer';
 
-describe('Reducers', () => {
+describe('GameReducer', () => {
   it('should create an action to reset the game', () => {
+    console.log(GameReducer);
+
     expect(true).to.equal(true);
   });
 });

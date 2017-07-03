@@ -13,10 +13,3 @@ export function setMove (move) {
     move
   };
 }
-
-export function startAiGame (moveCallback) {
-  return {
-    type: ACTIONS.START_AI_GAME,
-    moveCallback
-  };
-}

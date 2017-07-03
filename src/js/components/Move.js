@@ -4,21 +4,19 @@ import ClassNames from 'classnames';
 
 import * as Constants from '../constants/Constants';
 
-class Move extends React.Component {
-  renderMove () {
-    if (this.props.move >= 0) {
-      return Constants.MOVES[this.props.move].name;
+const Move = (props) => {
+  function renderMove () {
+    if (props.move >= 0) {
+      return Constants.MOVES[props.move].name;
     }
   }
 
-  render () {
-    return (
-      <div className={ClassNames('move', {'move--visible': this.props.move !== Constants.NO_MOVE})}>
-        {this.renderMove()}
-      </div>
-    );
-  }
-}
+  return (
+    <div className={ClassNames('move', {'move--visible': props.move !== Constants.NO_MOVE})}>
+      {renderMove()}
+    </div>
+  );
+};
 
 Move.propTypes = {
   move: PropTypes.number

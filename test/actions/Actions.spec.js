@@ -1,7 +1,7 @@
 import {ACTIONS} from '../../src/js/constants/Constants';
-import {resetGame, setMove, startAiGame} from '../../src/js/actions/Actions';
+import {resetGame, setMove} from '../../src/js/actions/Actions';
 
-describe('gameActions', () => {
+describe('Actions', () => {
   it('should create an action to reset the game', () => {
     let expectedAction = {
       type: ACTIONS.RESET_GAME,
@@ -19,12 +19,4 @@ describe('gameActions', () => {
 
     expect(setMove('Test move')).to.deep.equal(expectedAction);
   });
-
-  // it('should create an action to start an AI game', () => {
-  //   let expectedAction = {
-  //     type: ACTIONS.START_AI_GAME
-  //   };
-  //
-  //   expect(startAiGame()).to.deep.equal(expectedAction);
-  // });
 });
