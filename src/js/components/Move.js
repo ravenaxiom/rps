@@ -1,3 +1,7 @@
+/**
+ *  Functional component rendering an individual move made by a player.
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import ClassNames from 'classnames';
@@ -12,8 +16,8 @@ const Move = (props) => {
   }
 
   return (
-    <div className={ClassNames('move', {'move--visible': props.move !== Constants.NO_MOVE})}>
-      {renderMove()}
+    <div className={ClassNames('move', {'move--visible': props.move !== Constants.NO_MOVE}, `move--${renderMove()}`)}>
+      <span className="move-name">{renderMove()}</span>
     </div>
   );
 };

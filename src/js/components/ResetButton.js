@@ -1,3 +1,7 @@
+/**
+ *  Functional component rendering a button which changes the games current state
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import Classnames from 'classnames';

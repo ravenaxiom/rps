@@ -71,31 +71,3 @@
 		opacity:0.9;
 	}
 }
-
-.ai-game-indicator {
-	position:absolute;
-	width:100%;
-	bottom:25px;
-	left:0;
-	text-align:center;
-	display:none;
-	z-index:1;
-	color:$color-white;
-	font-size:20px;
-	opacity:0.9;
-
-	&.is-visible {
-		display:block;
-	}
-}
-
-.buttons-background {
-	position:absolute;
-	width:400px;
-	height:77px;
-	background-color:$color-near-black;
-	bottom:0;
-	left:50%;
-	margin-left:-200px;
-	box-shadow:2px 2px 2px 0 rgba(0,0,0,0.2);
-}

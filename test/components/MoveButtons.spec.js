@@ -8,6 +8,7 @@ import MoveButtons from '../../src/js/components/MoveButtons';
 describe('<MoveButtons />', () => {
   let defaultProps = {
     onClickHandler: () => {},
+    humanPlaying: true,
     winningPlayer: Constants.NO_WINNER
   }
 
@@ -21,7 +22,35 @@ describe('<MoveButtons />', () => {
 		expect(wrapper.find('.move-buttons').length).to.equal(1);
 	});
 
-  // TODO check moves renders correct number from constants
+  it('should render the correct number of buttons', () => {
+		const wrapper = setupTest();
+
+		expect(wrapper.find('.move-button').length).to.equal(Constants.MOVES.length);
+	});
+
+  it('should be disabled when an AI game is running', () => {
+		const wrapper = setupTest();
+    const additionalWrapper = setupTest({
+      onClickHandler: () => {},
+      humanPlaying: false,
+      winningPlayer: Constants.NO_WINNER
+    });
+
+		expect(wrapper.find('.move-button').first().prop('disabled')).to.equal(false);
+    expect(additionalWrapper.find('.move-button').first().prop('disabled')).to.equal(true);
+	});
+
+  it('should be disabled when a player has won', () => {
+		const wrapper = setupTest();
+    const additionalWrapper = setupTest({
+      onClickHandler: () => {},
+      humanPlaying: true,
+      winningPlayer: 0
+    });
+
+		expect(wrapper.find('.move-button').first().prop('disabled')).to.equal(false);
+    expect(additionalWrapper.find('.move-button').first().prop('disabled')).to.equal(true);
+	});
 
   it('should run the click callback when clicked', () => {
     const clickSpy = sinon.spy();

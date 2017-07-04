@@ -1,3 +1,7 @@
+/**
+ *  Redux actions used to connect with the store
+ */
+
 import {ACTIONS} from '../constants/Constants';
 
 export function resetGame (humanPlaying) {

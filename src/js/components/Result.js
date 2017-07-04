@@ -1,3 +1,7 @@
+/**
+ *  Functional component used to render a victory condition by either player
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 

@@ -8,7 +8,9 @@ import ResetButton from '../../src/js/components/ResetButton';
 describe('<ResetButton />', () => {
   let defaultProps = {
     label: 'My Label',
-    onClickHandler: () => {}
+    buttonClass: 'button-class',
+    onClickHandler: () => {},
+    winningPlayer: Constants.NO_WINNER
   }
 
 	function setupTest (props = defaultProps) {
@@ -21,10 +23,30 @@ describe('<ResetButton />', () => {
 		expect(wrapper.find('.reset-button').length).to.equal(1);
 	});
 
+  it('should render with the provided class prop', () => {
+		const wrapper = setupTest();
+
+		expect(wrapper.find('.reset-button--button-class').length).to.equal(1);
+	});
+
   it('should render the correct label prop', () => {
 		const wrapper = setupTest();
 
 		expect(wrapper.find('.reset-button').text()).to.equal(defaultProps.label);
+	});
+
+  it('should be highlighted if a player wins', () => {
+		const wrapper = setupTest();
+
+    const additionalWrapper = setupTest({
+      label: 'My Label',
+      buttonClass: 'button-class',
+      onClickHandler: () => {},
+      winningPlayer: 0
+    });
+
+		expect(wrapper.find('.reset-button--highlighted').length).to.equal(0);
+    expect(additionalWrapper.find('.reset-button--highlighted').length).to.equal(1);
 	});
 
   it('should run the click callback when clicked', () => {

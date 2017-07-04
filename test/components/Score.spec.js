@@ -10,8 +10,8 @@ describe('<Score />', () => {
       { type: 0, wins: 2 },
       { type: 0, wins: 1 }
     ],
-    draws: 0
-  }
+    draws: 3
+  };
 
 	function setupTest (props = defaultProps) {
 		return shallow(<Score {...props} />);
@@ -21,20 +21,19 @@ describe('<Score />', () => {
 		const wrapper = setupTest();
 
 		expect(wrapper.find('.score').length).to.equal(1);
-    // expect(wrapper.find('.score-display').length).to.equal(1); // GREATER than 1
 	});
 
-  // it('should render nothing if no winner is set', () => {
-	// 	const wrapper = setupTest({
-  //     winningPlayer: Constants.NO_WINNER
-  //   });
-  //
-	// 	expect(wrapper.find('.result').length).to.equal(0);
-	// });
+  it('should render the correct number of children', () => {
+		const wrapper = setupTest();
 
-  // it('should render winner display correctly', () => {
-	// 	const wrapper = setupTest();
-  //
-	// 	expect(wrapper.find('.result').text()).to.equal('Player 1 wins!');
-	// });
+		expect(wrapper.find('.score-item-value').length).to.equal(3);
+	});
+
+  it('should render score labels and values correctly', () => {
+		const wrapper = setupTest();
+
+		expect(wrapper.find('.score-item--player-1').text()).to.equal(`Player 1: 2 / ${Constants.NUM_WINS_NEEDED}`);
+    expect(wrapper.find('.score-item--player-2').text()).to.equal(`Player 2: 1 / ${Constants.NUM_WINS_NEEDED}`);
+    expect(wrapper.find('.score-item--draws').text()).to.equal('Draws:3');
+	});
 });

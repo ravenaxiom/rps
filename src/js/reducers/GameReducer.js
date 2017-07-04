@@ -1,6 +1,12 @@
+/**
+ * Main reducer for the game, handle all actions and return the correct state.
+ * Handles game logic such as who wins a game, or setting up a new game.
+ */
+
 import * as Constants from '../constants/Constants';
 
-function buildPlayers (isHumanPlaying) {
+// build an array of players based on values set in Constants
+export function buildPlayers (isHumanPlaying) {
   let playerList = [];
 
   for (let i = 0; i < Constants.PLAYER_COUNT; i++) {
@@ -18,23 +24,21 @@ function buildPlayers (isHumanPlaying) {
   return playerList;
 }
 
+// initial state of the app on startup
 const initialState = {
   humanPlaying: true,
-  startAiGame: false,
   draws: 0,
   winningPlayer: Constants.NO_WINNER,
   players: buildPlayers(true)
 };
 
-function generateMove () {
+// randomly generate a move, used by AI
+export function generateMove () {
   return Math.floor(Math.random() * Constants.MOVES.length);
 }
 
-// this needs to be written in a flexible way to allow any number of
-// players to play the game
-function calculateResult (result) {
-  console.log(result.players);
-
+// determine if a player has won this round
+export function calculateResult (result) {
   let playerOne = result.players[0],
       playerTwo = result.players[1],
       playerOneMove = Constants.MOVES[playerOne.move].name,
@@ -53,7 +57,8 @@ function calculateResult (result) {
   return result;
 }
 
-function checkWinConditions (players, state) {
+// determine if a player has won the game
+export function checkWinConditions (players) {
   let returnValue = Constants.NO_WINNER;
 
   // check if any players exceed the win condition limits
@@ -68,13 +73,12 @@ function checkWinConditions (players, state) {
   return returnValue;
 }
 
+// main reducer
 function GameReducer (state = initialState, action) {
   switch (action.type) {
     case Constants.ACTIONS.RESET_GAME: {
-      // TODO consolidate this object into a function thats written once
       return Object.assign({}, {
         humanPlaying: action.humanPlaying,
-        startAiGame: false,
         draws: 0,
         winningPlayer: Constants.NO_WINNER,
         players: buildPlayers(action.humanPlaying)
@@ -101,6 +105,8 @@ function GameReducer (state = initialState, action) {
         players[i].move = generateMove();
       }
 
+      // determine if victory conditions met
+
       let result = calculateResult({players, draws});
       players = result.players;
       draws = result.draws;
@@ -118,6 +124,7 @@ function GameReducer (state = initialState, action) {
       // clone the players array to ensure we don't mutate state directly
       let players = state.players.slice(0);
 
+      // clear all moves
       players.forEach((player) => {
         player.move = Constants.NO_MOVE;
       });

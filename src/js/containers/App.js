@@ -1,3 +1,8 @@
+/**
+ * 'Smart' container component, used to render the app, wire up all child Functional
+ * components to redux, and control general app logic
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
@@ -22,10 +27,11 @@ class App extends React.Component {
     // store the callback reference as a non-state property here, so it doesn't
     // trigger a refresh in setState. there's also no reason to persist it, so
     // don't keep it in the store
-    this.aiGameInterval = null;
-    this.clearMovesTimeout = null;
+    this.aiGameInterval = null; // aiGameInterval repeats AI moves until a game is won
+    this.clearMovesTimeout = null; // clearMovesTimeout clears human player moves after a few seconds
   }
 
+  // lifecycle method when props change
   componentWillReceiveProps (nextProps) {
     // if a winner is set, clear the interval
     if (nextProps.winningPlayer !== Constants.NO_WINNER) {
@@ -57,17 +63,20 @@ class App extends React.Component {
     }, Constants.CLEAR_MOVES_DELAY);
   }
 
+  // logic for selecting a move
   onMoveButtonsClick (index) {
     this.props.setMove(index);
     this.setClearMovesTimeout();
   }
 
+  // logic for clicking the 'play a game' button
   onPlayHumanGameClick () {
     this.clearAiGameInterval();
     this.stopClearMovesTimeout();
     this.props.resetGame(true);
   }
 
+  // logic for clicking the 'watch a game' button
   onWatchAiGameClick () {
     // clear any existing timeout
     this.clearAiGameInterval();
@@ -79,7 +88,6 @@ class App extends React.Component {
 
     // start the timeout
     this.aiGameInterval = setInterval(() => {
-      console.log('timeout called');
       this.props.setMove();
     },  Constants.AI_MOVE_SPEED);
   }
@@ -111,6 +119,7 @@ class App extends React.Component {
   }
 }
 
+// validation for props
 App.propTypes = {
   players: PropTypes.array,
   winningPlayer: PropTypes.number,
@@ -121,6 +130,7 @@ App.propTypes = {
   humanPlaying: PropTypes.bool
 };
 
+// map state in redux to props, which are passed down to child components
 const mapStateToProps = state => {
   return {
     draws: state.GameReducer.draws,
@@ -130,6 +140,7 @@ const mapStateToProps = state => {
   };
 };
 
+// map actions in redux to props, which are triggered later
 const mapDispatchToProps = dispatch => {
   return {
     setMove: (move, player) => dispatch(setMove(move, player)),
@@ -138,4 +149,5 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
+// connect only this container component to redux
 export default connect(mapStateToProps, mapDispatchToProps)(App);

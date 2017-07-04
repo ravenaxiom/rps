@@ -1,3 +1,7 @@
+/**
+ *  Functional component rendering the buttons used to select a move.
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import Classnames from 'classnames';

@@ -1,5 +1,5 @@
 import {ACTIONS} from '../../src/js/constants/Constants';
-import {resetGame, setMove} from '../../src/js/actions/Actions';
+import {resetGame, setMove, clearMoves} from '../../src/js/actions/Actions';
 
 describe('Actions', () => {
   it('should create an action to reset the game', () => {
@@ -8,7 +8,8 @@ describe('Actions', () => {
       humanPlaying: true
     };
 
-    expect(resetGame(true)).to.deep.equal(expectedAction); // need to use 'deep' because === wont equal
+    // need to use 'deep' equals, because normal equals will compare by reference not value
+    expect(resetGame(true)).to.deep.equal(expectedAction);
   });
 
   it('should create an action to make a move', () => {
@@ -18,5 +19,13 @@ describe('Actions', () => {
     };
 
     expect(setMove('Test move')).to.deep.equal(expectedAction);
+  });
+
+  it('should create an action to clear existing moves', () => {
+    let expectedAction = {
+      type: ACTIONS.CLEAR_MOVES
+    };
+
+    expect(clearMoves()).to.deep.equal(expectedAction);
   });
 });

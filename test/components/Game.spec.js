@@ -19,7 +19,7 @@ describe('<Game />', () => {
 		expect(wrapper.find('.game').length).to.equal(1);
 	});
 
-  it('should render no children', () => {
+  it('should render no children if no players are provided', () => {
 		const wrapper = setupTest({
       players: []
     });
@@ -27,7 +27,7 @@ describe('<Game />', () => {
 		expect(wrapper.find('.game').children().length).to.equal(0);
 	});
 
-  it('should render render the correct number of children', () => {
+  it('should render render the correct number of children if players are provided', () => {
 		const wrapper = setupTest();
 
 		expect(wrapper.find('.game').children().length).to.equal(defaultProps.players.length);

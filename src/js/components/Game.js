@@ -1,3 +1,7 @@
+/**
+ *  Functional component rendering the players selected moves.
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 

@@ -1,3 +1,7 @@
+/**
+ *  Functional component rendering the current score of the game
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import Classnames from 'classnames';
