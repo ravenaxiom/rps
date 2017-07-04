@@ -10,7 +10,7 @@ describe('<MoveButtons />', () => {
     onClickHandler: () => {},
     humanPlaying: true,
     winningPlayer: Constants.NO_WINNER
-  }
+  };
 
 	function setupTest (props = defaultProps) {
 		return shallow(<MoveButtons {...props} />);

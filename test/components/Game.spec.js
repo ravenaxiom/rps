@@ -7,7 +7,7 @@ import Game from '../../src/js/components/Game';
 describe('<Game />', () => {
   let defaultProps = {
     players: ['One', 'Two', 'Three']
-  }
+  };
 
 	function setupTest (props = defaultProps) {
 		return shallow(<Game {...props} />);
