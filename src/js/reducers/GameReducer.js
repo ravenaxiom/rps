@@ -114,6 +114,19 @@ function GameReducer (state = initialState, action) {
       });
     }
 
+    case Constants.ACTIONS.CLEAR_MOVES: {
+      // clone the players array to ensure we don't mutate state directly
+      let players = state.players.slice(0);
+
+      players.forEach((player) => {
+        player.move = Constants.NO_MOVE;
+      });
+
+      return Object.assign({}, state, {
+        players
+      });
+    }
+
     default: return state;
   }
 }

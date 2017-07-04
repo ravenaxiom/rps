@@ -1,5 +1,29 @@
 .reset-button {
-  background:transparent;
-  border:2px solid grey;
+  background-color:$color-light-blue;
+  border:1px solid $color-near-black;
   padding:10px;
+  cursor:pointer;
+  margin:20px 10px;
+  font-size:12px;
+  transition:background-color 0.3s ease-in;
+
+  &:hover {
+    background-color:lighten($color-light-blue, 10%);
+  }
+
+  &--play {
+    left:10px;
+  }
+
+  &--watch {
+    right:10px;
+  }
+
+  &--highlighted {
+    background-color:$color-theme-blush;
+
+    &:hover {
+      background-color:lighten($color-theme-blush, 10%);
+    }
+  }
 }

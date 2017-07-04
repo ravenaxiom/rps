@@ -13,3 +13,9 @@ export function setMove (move) {
     move
   };
 }
+
+export function clearMoves () {
+  return {
+    type: ACTIONS.CLEAR_MOVES
+  };
+}

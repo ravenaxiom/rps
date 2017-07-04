@@ -24,12 +24,12 @@ describe('<Game />', () => {
       players: []
     });
 
-		expect(wrapper.children().length).to.equal(0);
+		expect(wrapper.find('.game').children().length).to.equal(0);
 	});
 
   it('should render render the correct number of children', () => {
 		const wrapper = setupTest();
 
-		expect(wrapper.children().length).to.equal(defaultProps.players.length);
+		expect(wrapper.find('.game').children().length).to.equal(defaultProps.players.length);
 	});
 });

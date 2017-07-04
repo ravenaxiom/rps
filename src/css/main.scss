@@ -1,3 +1,6 @@
+@import './common/normalize';
+@import './common/variables';
+
 @import './components/Game';
 @import './components/Move';
 @import './components/MoveButtons';
@@ -8,9 +11,10 @@
 @import './containers/App';
 
 body {
-	background-color: white;
+	font-family:'Open Sans', 'Helvetica', Arial;
+	background-color:$color-dark-blue;
+}
 
-	h1 {
-		color: black;
-	}
+#app {
+	padding: 20px;
 }

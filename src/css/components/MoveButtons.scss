@@ -1,9 +1,101 @@
 .move-buttons {
-
+	width:100%;
+	text-align:center;
+  padding:20px 0 0;
 }
 
 .move-button {
-  background:transparent;
-  border:2px solid black;
-  padding:10px;
+	height:44px;
+	line-height:42px;
+	display:inline-block;
+	cursor:pointer;
+	position:relative;
+	border-radius:10px;
+	box-shadow:2px 2px 2px 0 rgba(0,0,0,0.2);
+	color:$color-white;
+	font-size:16px;
+	font-weight:bold;
+	text-transform:uppercase;
+	letter-spacing:1px;
+	width:110px;
+	margin:0 7px;
+	z-index:1;
+	overflow:hidden;
+	transition:background-color 0.2s ease-in;
+	box-sizing:border-box;
+
+	@include breakpoint($small-screen) {
+		width:90px;
+		font-size:12px;
+		margin:0 5px;
+	}
+
+	&:nth-child(1) {
+		background-color:$color-theme-papaya;
+
+		&:hover {
+			background-color:lighten($color-theme-papaya, 10%);
+		}
+	}
+
+	&:nth-child(2) {
+		background-color:$color-theme-mustard;
+
+		&:hover {
+			background-color:lighten($color-theme-mustard, 10%);
+		}
+	}
+
+	&:nth-child(3) {
+		background-color:$color-theme-blush;
+
+		&:hover {
+			background-color:lighten($color-theme-blush, 10%);
+		}
+	}
+
+	&:disabled, &[disabled] {
+		background-color:transparent;
+		box-shadow:none;
+		opacity:0.5;
+		&:hover {
+			background-color:transparent;
+		}
+	}
+
+	&.selected {
+		border:2px solid $color-white;
+	}
+
+	.text {
+		opacity:0.9;
+	}
+}
+
+.ai-game-indicator {
+	position:absolute;
+	width:100%;
+	bottom:25px;
+	left:0;
+	text-align:center;
+	display:none;
+	z-index:1;
+	color:$color-white;
+	font-size:20px;
+	opacity:0.9;
+
+	&.is-visible {
+		display:block;
+	}
+}
+
+.buttons-background {
+	position:absolute;
+	width:400px;
+	height:77px;
+	background-color:$color-near-black;
+	bottom:0;
+	left:50%;
+	margin-left:-200px;
+	box-shadow:2px 2px 2px 0 rgba(0,0,0,0.2);
 }

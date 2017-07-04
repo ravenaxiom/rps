@@ -1,3 +1,22 @@
 .move {
-  height:50px;
+	background-repeat:no-repeat;
+	width:75px;
+	height:100px;
+	margin:0 auto;
+	opacity:0;
+	transition:opacity 0.3s ease-in;
+
+	&--visible {
+		opacity:1;
+	}
+
+	&.player-0 {
+		bottom:0px;
+		transition:bottom 0.2s ease-in, opacity 0.2s ease-in;
+	}
+
+	&.player-1 {
+		top:0px;
+		transition:top 0.2s ease-in, opacity 0.2s ease-in;
+	}
 }

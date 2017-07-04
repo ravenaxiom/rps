@@ -1,5 +1,8 @@
 .app {
-  width:100%;
-  max-width:500px;
-  margin:0 auto;
+  max-width:600px;
+	margin: 20px auto 0;
+	position: relative;
+  background-color:$color-light-blue;
+  text-align:center;
+  border-radius:10px;
 }

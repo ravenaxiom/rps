@@ -1,0 +1,30 @@
+.game-wrapper {
+  padding:20px;
+  border-bottom:1px solid $color-black;
+}
+
+.game {
+	border:2px dashed $color-black;
+	border-radius:15px;;
+	background-color:$color-white;
+
+	@include breakpoint($small-screen) {
+		left:10px;
+		right:10px;
+		top:90px;
+		bottom:90px;
+	}
+
+	&:after {
+		content:'';
+		position:absolute;
+		top:-5px;
+		left:-5px;
+		right:-5px;
+		bottom:-5px;
+		background:$color-white;
+		z-index:-1;
+		border-radius:15px;
+		box-shadow:2px 2px 2px 0 rgba(0,0,0,0.2);
+	}
+}

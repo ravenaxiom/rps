@@ -8,9 +8,9 @@ const MoveButtons = (props) => {
   return (
     <div className="move-buttons">
       {Constants.MOVES.map((move, index) => {
-        return (<button className={Classnames('move-button', {move})}
+        return (<button className="move-button"
                         onClick={() => props.onClickHandler(index)}
-                        disabled={props.winningPlayer > -1}
+                        disabled={props.winningPlayer > -1 || !props.humanPlaying}
                         key={index}>
             {move.name}
         </button>);
@@ -21,6 +21,7 @@ const MoveButtons = (props) => {
 
 MoveButtons.propTypes = {
   onClickHandler: PropTypes.func,
+  humanPlaying: PropTypes.bool,
   winningPlayer: PropTypes.number
 };
 

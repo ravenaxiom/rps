@@ -6,12 +6,14 @@ import Move from './Move';
 
 const Game = (props) => {
   return (
-    <div className="game">
-      {props.players.map((player, index) => {
-        return (
-          <Move move={player.move} key={index} />
-        );
-      })}
+    <div className="game-wrapper">
+      <div className="game">
+        {props.players.map((player, index) => {
+          return (
+            <Move move={player.move} key={index} />
+          );
+        })}
+      </div>
     </div>
   );
 };

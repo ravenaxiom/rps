@@ -1,3 +1,57 @@
 .score {
-  background:grey;
+	height:77px;
+	background-color:$color-theme-aqua;
+	box-shadow:2px 0 2px 0 rgba(0,0,0,0.2);
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.score-item {
+	position:absolute;
+	top:23px;
+	font-size:15px;
+	color:$color-white;
+	line-height:20px;
+
+	&--player-1 {
+		right:50%;
+		margin-right:50px;
+	}
+
+	&--player-2 {
+		left:50%;
+		margin-left:50px;
+	}
+
+  &--draws {
+    left:50%;
+    width:100px;
+    margin-left:-50px;
+    text-align:center;
+  }
+}
+
+.score-item-value {
+	display:block;
+	font-size:16px;
+	font-weight:bold;
+}
+
+.round-number {
+	position:absolute;
+	top:14px;
+	left:50%;
+	font-size:16px;
+	width:100px;
+	margin-left:-50px;
+	text-align:center;
+	color:$color-white;
+	opacity:0.9;
+	line-height:24px;
+
+	.value {
+		display:block;
+		font-size:20px;
+		font-weight:bold;
+	}
 }

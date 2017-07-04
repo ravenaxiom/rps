@@ -52,6 +52,7 @@
     "react-test-renderer": "^15.6.1",
     "redux": "^3.7.1",
     "sass-loader": "^6.0.2",
+    "sinon": "^2.3.6",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.1",
     "webpack-core": "^0.6.9",

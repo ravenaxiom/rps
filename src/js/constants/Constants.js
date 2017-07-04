@@ -10,6 +10,9 @@ export const TYPE_AI = 'AI';
 // delay between AI moves in an AI only game
 export const AI_MOVE_SPEED = 2000;
 
+// delay between clearing the moves made
+export const CLEAR_MOVES_DELAY = 2000;
+
 export const NO_WINNER = -1;
 export const NO_MOVE = -1;
 export const MOVES = [
@@ -24,5 +27,5 @@ export const MOVES = [
 export const ACTIONS = {
   RESET_GAME: 'RESET_GAME',
   SET_MOVE: 'SET_MOVE',
-  START_AI_GAME: 'START_AI_GAME'
+  CLEAR_MOVES: 'CLEAR_MOVES'
 };

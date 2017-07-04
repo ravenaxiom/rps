@@ -1,0 +1,23 @@
+
+// Colors
+$color-theme-papaya:#e24e42;
+$color-theme-mustard:#e9b000;
+$color-theme-blush:#eb6e80;
+$color-theme-aqua:#008f95;
+$color-black:#1d1c18;
+$color-near-black:#392a2d;
+$color-dark-blue:#474c4b;
+$color-light-blue:#dadedd;
+$color-white:#fff;
+
+
+// Breakpoints
+$small-screen:'small-screen';
+
+@mixin breakpoint($breakpoint) {
+	@if $breakpoint == $small-screen {
+		@media (max-width: 480px) {
+			@content;
+		}
+	}
+}
