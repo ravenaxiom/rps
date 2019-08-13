@@ -7,7 +7,7 @@ import Result from '../../src/js/components/Result';
 describe('<Result />', () => {
   let defaultProps = {
     winningPlayer: 0
-  };
+  }
 
 	function setupTest (props = defaultProps) {
 		return shallow(<Result {...props} />);

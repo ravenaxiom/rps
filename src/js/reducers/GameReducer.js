@@ -4,33 +4,7 @@
  */
 
 import * as Constants from '../constants/Constants';
-
-// build an array of players based on values set in Constants
-export function buildPlayers (isHumanPlaying) {
-  let playerList = [];
-
-  for (let i = 0; i < Constants.PLAYER_COUNT; i++) {
-    playerList.push({
-      type: Constants.TYPE_AI,
-      wins: 0,
-      move: Constants.NO_MOVE
-    });
-  }
-
-  if (isHumanPlaying) {
-    playerList[0].type = Constants.TYPE_HUMAN;
-  }
-
-  return playerList;
-}
-
-// initial state of the app on startup
-const initialState = {
-  humanPlaying: true,
-  draws: 0,
-  winningPlayer: Constants.NO_WINNER,
-  players: buildPlayers(true)
-};
+import {InitialState, BuildPlayers} from './InitialState';
 
 // randomly generate a move, used by AI
 export function generateMove () {
@@ -74,14 +48,14 @@ export function checkWinConditions (players) {
 }
 
 // main reducer
-function GameReducer (state = initialState, action) {
+function GameReducer (state = InitialState, action) {
   switch (action.type) {
     case Constants.ACTIONS.RESET_GAME: {
       return Object.assign({}, {
         humanPlaying: action.humanPlaying,
         draws: 0,
         winningPlayer: Constants.NO_WINNER,
-        players: buildPlayers(action.humanPlaying)
+        players: BuildPlayers(action.humanPlaying)
       });
     }
 

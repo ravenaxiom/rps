@@ -11,7 +11,7 @@ describe('<ResetButton />', () => {
     buttonClass: 'button-class',
     onClickHandler: () => {},
     winningPlayer: Constants.NO_WINNER
-  };
+  }
 
 	function setupTest (props = defaultProps) {
 		return shallow(<ResetButton {...props} />);
